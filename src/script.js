@@ -1,8 +1,10 @@
 // console.log(`welcome to the thunder dome`)
-// state for storage
+// useState for storage 
 let state = {
-  players:[]
+  players:[] //players,setPlayer
 };
+
+// useEffect {here
 // fetch data and update state
 const fetchData = async () => {
   try {
@@ -19,6 +21,7 @@ const fetchData = async () => {
       console.error('Error fetching data:', error);
   }
 };
+// }
 // create displayPlayers funtion
 const displayPlayers = (players) => {
 //     // Create list

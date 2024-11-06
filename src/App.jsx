@@ -1,12 +1,19 @@
-// import { useState } from 'react'
-import './App.css'
+import { useState } from 'react'
+import Home from './Home'
 
 const App = () => {
-  // const [count, setCount] = useState(0)
+  const [players, setPlayers] = useState([])
+
+  
+  
+
 
   return (
     <>
-      <h1>Puppy Bowl</h1>
+      <Home setPlayers={setPlayers} players={players}/>
+      
+      
+      
     </>
   )
 }
