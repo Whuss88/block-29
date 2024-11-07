@@ -1,44 +1,48 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-const Home = ({setPlayers, players}) => {
-  
+const Home = ({setSelectedPlayer, selectedPlayer}) => {
+  const [players, setPlayers] = useState([])
+  const Navigate = useNavigate()
   useEffect(()=> {
     const fetchData = async () => {
       try {
-      // Fetch data from the specified URL
+      
       const response = await fetch('https://fsa-puppy-bowl.herokuapp.com/api/2409-FTB-ET-WEB-FT/players');
-      // Make the data readable with json()
       const allPlayers = await response.json();
-      // console.log(allPlayers) //brings back object
       const playersData = allPlayers.data.players;
       setPlayers(playersData) // brings back and array
-      console.log(players)
-      // if all that doesnt work show error
       } catch (error) {
       console.error('Error fetching data:', error);
+
       }
     }; fetchData()
     
   }, [])
   
-  
+ 
   
   
   return (
     <>
-    <h1>Puppy bowl</h1>
+      <h1>Puppy bowl</h1>
     <section id='all-players'>
         {
           players.map((singlePlayer)=>{
             return (
-              <section key={singlePlayer.id}>
+              <section key={singlePlayer.id} onClick={()=>{
+                  setSelectedPlayer(singlePlayer)
+                  console.log(selectedPlayer)
+                  Navigate('/details')
+                  }}>
                 <h2>{singlePlayer.name}</h2>
+                
               </section>
             )
           })
         }
       </section>
+      
       </>
   )
 
