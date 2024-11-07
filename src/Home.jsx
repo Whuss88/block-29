@@ -26,13 +26,13 @@ const Home = ({setSelectedPlayer, selectedPlayer}) => {
   return (
     <>
       <h1>Puppy bowl</h1>
-    <section id='all-players'>
+      <section id='all-players'>
         {
           players.map((singlePlayer)=>{
             return (
               <section key={singlePlayer.id} onClick={()=>{
                   setSelectedPlayer(singlePlayer)
-                  console.log(selectedPlayer)
+                  // console.log(selectedPlayer)
                   Navigate('/details')
                   }}>
                 <h2>{singlePlayer.name}</h2>

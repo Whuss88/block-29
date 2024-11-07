@@ -1,22 +1,16 @@
-import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-
-
-
 
 const Details = ({selectedPlayer}) => {
   const navigate = useNavigate()
-  // useEffect( ()=> {
-    console.log(selectedPlayer)
+  
+    // console.log(selectedPlayer)
     
     return (
       <>
        <section  id='player-details'> 
          <h2>Details for {selectedPlayer.name}</h2>
-         <p>ID {selectedPlayer.id}</p>
-         <img src={selectedPlayer.imageUrl}
-         height={600}
-         width={600}/>
+         <p>ID: {selectedPlayer.id}</p>
+         <img src={selectedPlayer.imageUrl}/>
          <p>Breed: {selectedPlayer.breed}</p>
          <p>Status: {selectedPlayer.status}</p>
             
